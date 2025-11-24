@@ -92,6 +92,33 @@ public class MemberDAO {
 		 
 		return result;
 	 }
+
+	 public int idOk(String userid) {
+		 
+		 int result = -1;
+		 String sql = "select useid from member where userid = ?";
+		 
+		 try(
+				 
+				 Connection con = DBManager.getConnection();
+				 PreparedStatement pstmt = con.prepareStatement(sql)){
+			 
+			 	pstmt.setString(1, userid);
+			 	ResultSet rs = pstmt.executeQuery();
+			 	
+			 	
+			 	if(rs.next()) result = 1; //아이디 존재
+			 	else result = -1; //아이디 없음
+			 
+		 }catch (Exception e) {
+			 
+			 e.printStackTrace();
+			 
+		 }
+		 
+		return result;
+		
+	 }
 		
 	
 	

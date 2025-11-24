@@ -22,22 +22,23 @@ public class FruitJoinAction implements Action{
 		 vo.setName(request.getParameter("name"));
 		 vo.setNick(request.getParameter("nick"));
 		 vo.setEmail(request.getParameter("email"));
+		 vo.setPhone(request.getParameter("phone"));
 		 vo.setAddress(request.getParameter("address"));
 		 vo.setNum(0);
 		 
 		 MemberDAO mdao = MemberDAO.getInstance();
 		 int result = mdao.insertMember(vo);
 		 
-		 
-		String url = "//member/memberLogin.jsp"; //성공하면 로그인 페이지로.  
-	    
-		if(result == -1) {
-			request.setAttribute("message", "회원가입에 실패했습니다."); //실패하면 메세지 보여주고
+		 		    
+		if(result > 0) {
+		
+			response.sendRedirect("MemberServlet?command=memberLogin");
+		
+		}else
+		
+		{request.setAttribute("message", "회원가입에 실패했습니다."); //실패하면 메세지 보여주고
+		 request.getRequestDispatcher("/member/fruitJoin.jsp").forward(request, response);
 		}
-		
-	      request.getRequestDispatcher(url)
-	      .forward(request, response);
-		
 	}
 
 }

@@ -8,6 +8,7 @@
 
 <!-- CSS 경로 수정: 상위 폴더 이동 필요 -->
 <link rel="stylesheet" type="text/css" href="../css/login.css">
+<script type="text/javascript" src="script/member.js"></script>
 
 </head>
 <body>
