@@ -300,6 +300,28 @@ public class MemberDAO {
 
         return mvo;
     }
+
+	public void deletemember(String userId) {
+		
+		String sql = "delete from members where user_id=?";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			
+			pstmt.executeUpdate();
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			 DBManager.close(conn, pstmt);
+		}
+		
+	}
     
 
 

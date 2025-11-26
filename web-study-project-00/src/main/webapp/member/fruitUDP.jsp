@@ -19,8 +19,6 @@
 		<nav>
 			<ul>
 				<li><a
-					href="<%=request.getContextPath()%>/FruitServlet?command=fruit_home">홈으로</a></li>
-				<li><a
 					href="<%=request.getContextPath()%>/FruitServlet?command=fruit_home">공지사항</a></li>
 				<li><a
 					href="<%=request.getContextPath()%>/FruitServlet?command=fruit_Control">회원관리</a></li>
@@ -84,13 +82,21 @@
 			</tr>
 		</table>
 
-		<br> <input type="button" value="수정"
+		<!-- 수정 버튼 -->
+		<input type="button" value="수정"
 			onclick="location.href='FruitServlet?command=fruit_edit_form&user_id=${mvo.userId}'">
 
+		<!-- 취소 버튼 -->
 		<input type="button" value="취소"
-       onclick="location.href='FruitServlet?command=fruit_Control'">
-
+			onclick="location.href='FruitServlet?command=fruit_Control'">
+ 		
 	</form>
+	<!-- 삭제 버튼 -->	
+		<form action="FruitServlet?command=fruit_UDP_delete" method="post"
+			onsubmit="return confirm('정말 삭제하시겠습니까?');" style="display: inline;">
+			<input type="hidden" name="user_id" value="${mvo.userId}"> <input
+				type="submit" value="회원 삭제">
+		</form>
 
 	<footer>
 		<p>COPYRICHT(C) 2025 과일농장, Inc. All Rights Reserved</p>

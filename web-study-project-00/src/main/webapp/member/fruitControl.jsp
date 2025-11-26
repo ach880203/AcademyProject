@@ -18,8 +18,6 @@
 		<nav>
 			<ul>
 				<li><a
-					href="<%=request.getContextPath()%>/FruitServlet?command=fruit_home">홈으로</a></li>
-				<li><a
 					href="<%=request.getContextPath()%>/FruitServlet?command=fruit_home">공지사항</a></li>
 				<li><a
 					href="<%=request.getContextPath()%>/FruitServlet?command=fruit_Control">회원관리</a></li>

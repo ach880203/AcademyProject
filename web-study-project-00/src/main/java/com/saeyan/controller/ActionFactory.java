@@ -11,6 +11,7 @@ import com.saeyan.controller.action.FruitNDPAction;
 import com.saeyan.controller.action.FruitNDPformAction;
 import com.saeyan.controller.action.FruitNDPwriteAction;
 import com.saeyan.controller.action.FruitUDPAction;
+import com.saeyan.controller.action.FruitUDPDeleteAction;
 import com.saeyan.controller.action.FruitJoinFormAction;
 import com.saeyan.controller.action.FruitFindIdAction;
 import com.saeyan.controller.action.FruitFindIdFormAction;
@@ -53,11 +54,13 @@ public class ActionFactory {
 		
 		}
 		
-		
+		//최종본에 없음
 		else if (command.equals("fruit_Request")) {
 			action=new FruitRequestAction();
 			
-		}else if (command.equals("fruit_Control")) {
+		}
+		
+		else if (command.equals("fruit_Control")) {
 			action=new FruitControlAction();
 			
 		
@@ -136,9 +139,15 @@ public class ActionFactory {
 		
 		 else if(command.equals("product_write")) {
 				action = new ProductWriteAction();
+		
 				
+		//없음		
 		}else if(command.equals("fruit_edit_form")) {
-		    action = new FruitEditFormAction(); // ✔ 수정 폼 Action
+		    action = new FruitEditFormAction(); 
+		}
+		
+		else if(command.equals("fruit_UDP_delete")) {
+		    action = new FruitUDPDeleteAction(); 
 		}
 		
 		
